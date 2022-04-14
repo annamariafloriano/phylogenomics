@@ -15,12 +15,7 @@ and so on
 
 [2]
 requires: 
-orthofinder
-modeltest-ng
-RAxML-HPCthreads
-Gblocks
-muscle
-a script to concatenate sequences
+orthofinder, modeltest-ng, RAxML-HPCthreads, Gblocks, muscle, a script to concatenate sequences.
 
 [3]
 Change the headers in the input FASTAs to have the accession numbers of the genomes in the beginning of the sequences names to avoid issues with the names length. I provided an easy way to change the names back in the final tree using R (and the package ape) in renameTreeTips.
