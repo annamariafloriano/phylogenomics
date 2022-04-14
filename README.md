@@ -11,4 +11,10 @@ example of "good names":
 and so on
 
 #
-Careful: check that orthofinder, modeltest-ng and RAxML-HPCthreads is installed on the machine you are using
+requires: 
+orthofinder
+modeltest-ng
+RAxML-HPCthreads
+Gblocks
+muscle
+a script to concatenate sequences
