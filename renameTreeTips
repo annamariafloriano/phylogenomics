@@ -1,0 +1,14 @@
+# load ape
+library(ape)
+
+# read tree
+tr <- read.tree("tree.nwk")
+
+#read table of accession and organism names. First column is the current labels (column name is label) and second column is the newlabels (column name is nlabel)
+d <- read.csv("accession.lst")
+
+# actual rename
+tr$tip.label <- d[[2]][match(tr$tip.label, d[[1]])]
+
+# save tree
+write.tree(tr, file = "renamedtree.nwk", append = FALSE, digits = 10, tree.names = TRUE)
