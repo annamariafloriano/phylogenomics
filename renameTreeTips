@@ -1,0 +1,13 @@
+library(ape)
+
+# load tree
+tr <- read.tree("tree.nwk")
+
+# load comma-separated table. First column contains the names in the Newick file, second column contains the organisms' full names.
+d <- read.csv("accno.tab",header=F)
+
+# actual change of labels
+tr$tip.label <- d[[2]][match(tr$tip.label, d[[1]])] 
+
+# write the new, renamed tree file
+write.tree(tr, file = "renamedtree.nwk", append = FALSE, digits = 10, tree.names = TRUE)
