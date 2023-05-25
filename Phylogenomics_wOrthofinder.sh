@@ -1,7 +1,7 @@
 # you can use the path to the tools and scripts by uncommenting and modifying these lines:
 # notice that you will also have to uncomment other lines throughout the pipeline and comment others (they are indicated in the pipeline)
 #Gblocks="/PATH/TO/Gblocks"
-#Concatenate="/PATH/TO/Concatenate.pl"
+#Concatenate="/PATH/TO/ConcatenateSeqs.py"
 #orthofinder="/PATH/TO/orthofinder"
 #modeltest-ng="/PATH/TO/modeltest-ng"
 #raxmlHPC-PTHREADS="PATH/TO/raxmlHPC-PTHREADS"
@@ -40,7 +40,7 @@ for a in Single_Copy_Orthologue_Sequences/*.aln; do Gblocks $a -t=p; done
 mkdir Single_Copy_Orthologue_Sequences_AlnGb
 cp Single_Copy_Orthologue_Sequences/*gb Single_Copy_Orthologue_Sequences_AlnGb/
 
-perl $Concatenate Single_Copy_Orthologue_Sequences_AlnGb/ > Single_Copy_Orthologue_Sequences_AlnGb.cat.fasta
+perl $Concatenate -d Single_Copy_Orthologue_Sequences_AlnGb/ -o Single_Copy_Orthologue_Sequences_AlnGb.cat.fasta
 
 
 modeltest-ng -i Single_Copy_Orthologue_Sequences_AlnGb.cat.fasta -p $threads -T raxml -d aa
